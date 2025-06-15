@@ -7,13 +7,19 @@ html, body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 
-main h1 {
-  font-size: 3em;
-  line-height: 1.4;
+main {
+  padding-top: 10vh; /* upper third alignment */
   text-align: center;
+  width: 100%;
+}
+
+h1 {
+  font-size: 83px;
+  line-height: 77px;
+  letter-spacing: 0.11em; /* 11% */
   font-weight: 400;
   margin: 0;
 }

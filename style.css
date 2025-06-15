@@ -1,3 +1,4 @@
+/* Ensure full viewport size and center alignment */
 html, body {
   margin: 0;
   padding: 0;
@@ -7,10 +8,11 @@ html, body {
   color: black;
   font-family: 'Kode Mono', monospace;
   display: flex;
-  justify-content: center; /* horizontal center */
   align-items: center;     /* vertical center */
+  justify-content: center; /* horizontal center */
 }
 
+/* Optional: reset any extra spacing */
 main {
   text-align: center;
 }
@@ -18,7 +20,7 @@ main {
 h1 {
   font-size: 83px;
   line-height: 77px;
-  letter-spacing: 0.11em; /* 11% */
+  letter-spacing: 0.11em;
   font-weight: 400;
   margin: 0;
 }

@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Māris Dejus</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <p>This is my GitHub Pages site.</p>
+  <main>
+    <h1>Māris Dejus</h1>
+    <p>Artist. Sound Designer. Digital Explorer.</p>
+
+    <section id="creative-toggle">
+      <button onclick="toggleCreativeMode()">🔁 Enter Creative Mode</button>
+    </section>
+  </main>
+
+  <script>
+    function toggleCreativeMode() {
+      document.body.classList.toggle("creative");
+    }
+  </script>
 </body>
 </html>

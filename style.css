@@ -1,69 +1,20 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: white;
+  background-color: white;
   color: black;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Mono', monospace;
   height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  height: 100%;
-  width: 100%;
-}
-
-.cell {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
 }
 
-.name h1 {
+main {
+  padding-top: 15vh; /* push it down a bit */
+}
+
+h1 {
   font-size: 3em;
-  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
-  background-size: 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: rainbowText 6s infinite ease-in-out;
-}
-
-@keyframes rainbowText {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-  100% { background-position: 0% center; }
-}
-
-.screen {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-}
-
-#visuals-canvas {
-  width: 100%;
-  height: 100%;
-}
-
-.button-1 {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-}
-
-.button-2 {
-  grid-column: 1 / 2;
-  grid-row: 3 / 4;
-}
-
-button {
-  background: black;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 1em 2em;
-  font-size: 1.2em;
+  letter-spacing: 0.05em;
 }

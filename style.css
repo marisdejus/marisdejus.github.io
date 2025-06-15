@@ -1,66 +1,69 @@
-:root {
-  --bg: #0a0a0a;
-  --text: #f0f0f0;
-  --accent: #00ffff;
-  --creative-bg: linear-gradient(135deg, aqua, magenta, violet);
-}
-
-body {
+html, body {
   margin: 0;
-  padding: 2em;
-  font-family: 'Helvetica Neue', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
+  padding: 0;
+  background: white;
+  color: black;
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 100%;
+  width: 100%;
+}
+
+.cell {
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  transition: background 0.5s ease, color 0.5s ease;
+  justify-content: center;
 }
 
-main {
-  max-width: 600px;
-  text-align: center;
+.name h1 {
+  font-size: 3em;
+  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+  background-size: 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: rainbowText 6s infinite ease-in-out;
 }
 
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.2em;
+@keyframes rainbowText {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
-.tagline {
-  font-size: 1.2em;
-  color: var(--accent);
-  margin-bottom: 1.5em;
+.screen {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 }
 
-.intro p {
-  font-size: 1em;
-  line-height: 1.6;
-  margin-bottom: 2em;
+#visuals-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.button-1 {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.button-2 {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
 }
 
 button {
-  background-color: var(--accent);
-  color: black;
+  background: black;
+  color: white;
   border: none;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background-color: white;
-  color: black;
-}
-
-body.creative {
-  background: var(--creative-bg);
-  color: black;
-}
-
-body.creative .tagline {
-  color: red;
+  border-radius: 12px;
+  padding: 1em 2em;
+  font-size: 1.2em;
 }

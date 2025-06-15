@@ -7,25 +7,25 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main>
-    <header>
+  <div class="grid">
+    <div class="cell name">
       <h1>Māris Dejus</h1>
-      <p class="tagline">Audiovisual Artist & Digital Explorer</p>
-    </header>
+    </div>
 
-    <section class="intro">
-      <p>Welcome to my digital space. This site is my archive, portfolio, and playground. A place to connect beyond the noise of platforms.</p>
-    </section>
+    <div class="cell screen">
+      <div id="visuals-canvas"></div>
+    </div>
 
-    <section id="creative-toggle">
-      <button onclick="toggleCreativeMode()">Enter Creative Mode</button>
-    </section>
-  </main>
+    <div class="cell button button-1">
+      <button>✶</button>
+    </div>
 
-  <script>
-    function toggleCreativeMode() {
-      document.body.classList.toggle("creative");
-    }
-  </script>
+    <div class="cell button button-2">
+      <button>◎</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -99,16 +99,7 @@ img, video, object, model-viewer {
     /* Optional: A very subtle rounded corner for polish */
     border-radius: 3px; 
 }
-/* Base state: Signals the element is ready to be grabbed */
-.visual-element model-viewer {
-    cursor: grab;
-}
 
-/* Hover/Active state: Signals the element is currently being moved */
-/* This is standard for drag-and-drop interfaces */
-.visual-element model-viewer:active {
-    cursor: grabbing;
-}
 
 /* Style for the container that holds the title and the model */
 .header-inline-wrapper {

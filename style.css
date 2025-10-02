@@ -1,36 +1,22 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-  color: black;
-  font-family: 'Kode Mono', monospace;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+body {
+    /* Set a clean, minimalist font */
+    font-family: Arial, sans-serif;
+    color: #333; /* Dark text */
+    margin: 0; 
 }
 
-#name {
-  font-size: 83px;
-  line-height: 77px;
-  letter-spacing: 0.11em;
-  font-weight: 400;
-  text-align: center;
-  margin: 0;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  z-index: 2;
+* {
+    box-sizing: border-box; 
 }
 
-#name:hover {
-  transform: scale(1.1);
+main {
+    max-width: 900px; /* Set a maximum width for the whole site */
+    margin: 40px auto; /* Centers the block horizontally and adds vertical space */
+    padding: 0 20px; /* Padding for mobile view, so content doesn't hit the edges */
 }
 
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+hr {
+    border: none;
+    border-top: 1px solid #eee; /* Very light gray line */
+    margin: 40px 0;
 }

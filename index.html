@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maris Dejus - Media Studio</title>
-    <link rel="stylesheet" href="style.css"> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maris Dejus Multimedia Studio</title>
+<link rel="stylesheet" href="style.css"> 
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/1.12.0/model-viewer.min.js"></script>
 </head>
 <body>
     <main>
       <header id="intro">
-            <h1>Maris Dejus</h1>
-            <h2 class="subtitle">Multimedia Studio</h2>
+      
+    <div class="header-inline-wrapper">
+        <h1>Maris Dejus</h1>
+        <div class="visual-element">
+    <model-viewer 
+        src="assets/head.glb"
+        alt="Rotating 3D model of a head"
+        ar 
+        exposure="0"  
+         camera-controls
+    projection="orthographic" /* NEW: Forces the flat, 2D projection */
+        auto-rotate 
+         rotation-per-second="-60deg" 
+        auto-rotate-delay="0.01"
+        shadow-intensity="0" disable-zoom 
+      
+        style="width: 90px; height: 90px;"> </model-viewer>
+</div>
+                  <p class="contact"><a href="mailto:marisdejus123456789@gmail.com">marisdejus123456789@gmail.com</a></p>
 
-            <div class="visual-element">
-                <p>3D Object Placeholder</p> 
-            </div>
+    </div>
+    </header>
 
-            <p class="contact"><a href="mailto:your_email@example.com">your_email@example.com</a></p>
-        </header>
+       
+
+     
 
         <hr> 
 

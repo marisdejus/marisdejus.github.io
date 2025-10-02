@@ -68,15 +68,16 @@ h2, h3, p, .timeline-item {
 /* ------------------------------------- */
 
 .media-embed {
-    text-align: center; 
+    text-align: left; 
     margin: 2em 0;
 }
 
-img, video, object {
+img, video, object, model-viewer { 
     max-width: 100%;
     height: auto; 
     display: block; 
-    margin: 0 auto;
+    /* The key to left-alignment: set margin to 0 */
+    margin: 0; 
 }
 
 .media-embed iframe {
@@ -85,4 +86,48 @@ img, video, object {
     height: 450px; /* Adjust this height as needed for your embed */
     display: block;
     margin: 0 auto;
+}
+
+/* Ensure the model viewer element itself is visually minimalist */
+.visual-element model-viewer {
+    /* Set the background to match your page's body background color */
+    background-color: transparent; 
+    
+    /* Remove any default outline or harsh borders */
+    border: none;
+    
+    /* Optional: A very subtle rounded corner for polish */
+    border-radius: 3px; 
+}
+/* Base state: Signals the element is ready to be grabbed */
+.visual-element model-viewer {
+    cursor: grab;
+}
+
+/* Hover/Active state: Signals the element is currently being moved */
+/* This is standard for drag-and-drop interfaces */
+.visual-element model-viewer:active {
+    cursor: grabbing;
+}
+
+/* Style for the container that holds the title and the model */
+.header-inline-wrapper {
+    display: flex;
+    
+    /* NEW: Keeps items clustered on the left */
+    justify-content: flex-start; 
+    
+    /* NEW: Puts exactly 50px of space between the H1 and the model */
+    gap: 10px; 
+    
+    /* Vertically aligns the middle of the title with the middle of the model */
+    align-items: center; 
+    
+    /* Add space below the whole unit */
+    margin-bottom: 20px;
+}
+
+/* Ensure the H1 doesn't have extra margins interfering with alignment */
+.header-inline-wrapper h1 {
+    margin: 0;
 }

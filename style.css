@@ -1,81 +1,77 @@
 /* ------------------------------------- */
-/* Essential Minimal CSS & Reset */
+/* 1. Global Reset (The most minimal settings) */
 /* ------------------------------------- */
 
-/* Use default browser styling (no font-family specified) */
 body {
+    /* REMOVED: font-family: Arial, sans-serif; - now uses browser default */
     color: #222; /* Dark text for readability */
     margin: 0; 
     padding: 0;
-    line-height: 1.5; /* Good reading line height */
+    line-height: 1.5; 
 }
 
 /* The crucial Box Model reset */
 * {
     box-sizing: border-box; 
+    /* NEW: Ensure margins/paddings on all elements start at zero */
+    margin: 0;
+    padding: 0;
 }
 
 /* ------------------------------------- */
-/* Layout: Left-Aligned Content Column */
+/* 2. Layout: Left-Aligned Content Column */
 /* ------------------------------------- */
 
 main {
     /* Set max width and center the content block */
     max-width: 900px; 
+    /* Only add space at the top and bottom of the main content */
     margin: 40px auto; 
     padding: 0 20px; 
 }
 
-/* Remove the gray lines you didn't want */
+/* ------------------------------------- */
+/* 3. Style Removal (Targeting the problems) */
+/* ------------------------------------- */
+
+/* This targets the <hr> tags (the grey lines) and completely hides them */
 hr {
     display: none; 
 }
 
-/* ------------------------------------- */
-/* Header and Typography Alignment (Left) */
-/* ------------------------------------- */
-
-#intro {
-    padding-bottom: 60px; /* Space below the header */
-    /* REMOVED: display: flex; and align-items: center; */
+/* Remove styling from links (like the email) */
+a {
+    color: inherit; /* Use the same dark color as surrounding text */
+    text-decoration: none; /* Remove the underline */
 }
 
-#intro h1 {
-    /* Keep the default browser alignment (left) */
-    margin-bottom: 0.1em; 
+/* Add back necessary spacing to readable elements */
+h1, h2, h3, p, .timeline-item {
+    /* Add back vertical space, which the *{} reset removed */
+    margin-bottom: 1em; 
+    margin-top: 1em;
 }
 
-#intro .subtitle {
-    margin-top: 0;
-    margin-bottom: 40px; /* Space below the subtitle */
-    font-weight: normal; /* Use default font weight for minimalism */
-}
-
-#intro .visual-element {
-    /* Add vertical space around your 3D placeholder */
-    margin: 40px 0; 
+/* Remove default link styling for the email in the header */
+#intro .contact a {
+    /* The browser was likely adding padding/border here before, 
+       this removes any lingering effect */
+    border: none;
+    padding: 0;
 }
 
 /* ------------------------------------- */
-/* Timeline: Centering Media Elements */
+/* 4. Timeline: Centering Media Elements */
 /* ------------------------------------- */
-
-.timeline-item {
-    margin-bottom: 80px; /* Space between projects */
-}
 
 .media-embed {
-    /* Make the media embed container centered */
     text-align: center; 
-    margin-bottom: 20px; 
+    margin: 2em 0;
 }
 
-/* Ensure embedded media is responsive */
-.media-embed img, .media-embed video {
+img, video, object {
     max-width: 100%;
-    height: auto;
-    display: block; /* Important for alignment */
-    /* When an image/video has a fixed width, margin: auto will center it */
-    margin-left: auto;
-    margin-right: auto;
+    height: auto; 
+    display: block; 
+    margin: 0 auto;
 }

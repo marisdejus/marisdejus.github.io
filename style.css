@@ -1,22 +1,81 @@
+/* ------------------------------------- */
+/* Essential Minimal CSS & Reset */
+/* ------------------------------------- */
+
+/* Use default browser styling (no font-family specified) */
 body {
-    /* Set a clean, minimalist font */
-    font-family: Arial, sans-serif;
-    color: #333; /* Dark text */
+    color: #222; /* Dark text for readability */
     margin: 0; 
+    padding: 0;
+    line-height: 1.5; /* Good reading line height */
 }
 
+/* The crucial Box Model reset */
 * {
     box-sizing: border-box; 
 }
 
+/* ------------------------------------- */
+/* Layout: Left-Aligned Content Column */
+/* ------------------------------------- */
+
 main {
-    max-width: 900px; /* Set a maximum width for the whole site */
-    margin: 40px auto; /* Centers the block horizontally and adds vertical space */
-    padding: 0 20px; /* Padding for mobile view, so content doesn't hit the edges */
+    /* Set max width and center the content block */
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
 }
 
+/* Remove the gray lines you didn't want */
 hr {
-    border: none;
-    border-top: 1px solid #eee; /* Very light gray line */
-    margin: 40px 0;
+    display: none; 
+}
+
+/* ------------------------------------- */
+/* Header and Typography Alignment (Left) */
+/* ------------------------------------- */
+
+#intro {
+    padding-bottom: 60px; /* Space below the header */
+    /* REMOVED: display: flex; and align-items: center; */
+}
+
+#intro h1 {
+    /* Keep the default browser alignment (left) */
+    margin-bottom: 0.1em; 
+}
+
+#intro .subtitle {
+    margin-top: 0;
+    margin-bottom: 40px; /* Space below the subtitle */
+    font-weight: normal; /* Use default font weight for minimalism */
+}
+
+#intro .visual-element {
+    /* Add vertical space around your 3D placeholder */
+    margin: 40px 0; 
+}
+
+/* ------------------------------------- */
+/* Timeline: Centering Media Elements */
+/* ------------------------------------- */
+
+.timeline-item {
+    margin-bottom: 80px; /* Space between projects */
+}
+
+.media-embed {
+    /* Make the media embed container centered */
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+/* Ensure embedded media is responsive */
+.media-embed img, .media-embed video {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Important for alignment */
+    /* When an image/video has a fixed width, margin: auto will center it */
+    margin-left: auto;
+    margin-right: auto;
 }

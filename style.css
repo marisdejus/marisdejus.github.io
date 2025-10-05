@@ -1,124 +1,134 @@
 /* ------------------------------------- */
-/* 1. Global Reset (The most minimal settings) */
+/* 1. Global Reset */
 /* ------------------------------------- */
 
 body {
-    /* REMOVED: font-family: Arial, sans-serif; - now uses browser default */
-    color: #222; /* Dark text for readability */
+    color: #222; 
     margin: 0; 
     padding: 0;
     line-height: 1.5; 
 }
 
-/* The crucial Box Model reset */
 * {
     box-sizing: border-box; 
-    /* NEW: Ensure margins/paddings on all elements start at zero */
     margin: 0;
     padding: 0;
 }
 
 /* ------------------------------------- */
-/* 2. Layout: Left-Aligned Content Column */
+/* 2. Layout: Centered Content Column */
 /* ------------------------------------- */
 
 main {
-    /* Set max width and center the content block */
     max-width: 900px; 
-    /* Only add space at the top and bottom of the main content */
     margin: 40px auto; 
     padding: 0 20px; 
 }
 
 /* ------------------------------------- */
-/* 3. Style Removal (Targeting the problems) */
+/* 3. General Style Tweaks */
 /* ------------------------------------- */
 
-/* This targets the <hr> tags (the grey lines) and completely hides them */
 hr {
     display: none; 
 }
 
-/* Remove styling from links (like the email) */
 a {
-    color: inherit; /* Use the same dark color as surrounding text */
-    text-decoration: none; /* Remove the underline */
+    color: inherit; 
+    text-decoration: none; 
 }
 
 h1 {
-    margin-top: 0.5em; /* Tighter spacing above the main title */
-    margin-bottom: 0.2em; /* Very tight spacing below */
+    margin-top: 0.5em; 
+    margin-bottom: 0.2em; 
 }
 
 h2, h3, p, .timeline-item {
-    margin-top: 0.5em; /* Reduced vertical space */
-    margin-bottom: 0.5em; /* Reduced vertical space */
+    margin-top: 0.5em; 
+    margin-bottom: 0.5em; 
 }
 
-/* Remove default link styling for the email in the header */
 #intro .contact a {
-    /* The browser was likely adding padding/border here before, 
-       this removes any lingering effect */
     border: none;
     padding: 0;
 }
 
-/* ------------------------------------- */
-/* 4. Timeline: Centering Media Elements */
-/* ------------------------------------- */
+/* ----------------------------------------------------- */
+/* 4. Timeline: Responsive, Centered 16:9 Media Embeds (FIXED) */
+/* ----------------------------------------------------- */
 
 .media-embed {
-    text-align: left; 
-    margin: 2em 0;
-}
-
-img, video, object, model-viewer { 
-    max-width: 100%;
-    height: auto; 
-    display: block; 
-    /* The key to left-alignment: set margin to 0 */
-    margin: 0; 
-}
-
-.media-embed iframe {
-    max-width: 100%; 
+    /* 16:9 Aspect Ratio Lock for YouTube/Flickr consistency */
+    position: relative;
     width: 100%;
-    height: 450px; /* Adjust this height as needed for your embed */
-    display: block;
-    margin: 0 auto;
+    aspect-ratio: 16 / 9; 
+    
+    text-align: center; 
+    margin: 2em auto; 
+    overflow: hidden; 
 }
 
-/* Ensure the model viewer element itself is visually minimalist */
+/* Forces all media (iframes, images) to fill the 16:9 box */
+.media-embed > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    
+    margin: 0 !important;
+    border: none !important;
+    /* This rule causes the zoom/crop if the content is NOT 16:9 (e.g., your vertical image) */
+    object-fit: cover; 
+}
+
+/* Ensure Flickr link and image elements behave as blocks within the absolute container */
+.media-embed a[data-flickr-embed="true"],
+.media-embed a[data-flickr-embed="true"] img {
+    display: block; 
+}
+
+/* Model Viewer Styles */
 .visual-element model-viewer {
-    /* Set the background to match your page's body background color */
     background-color: transparent; 
-    
-    /* Remove any default outline or harsh borders */
     border: none;
-    
-    /* Optional: A very subtle rounded corner for polish */
     border-radius: 3px; 
 }
 
+/* ------------------------------------- */
+/* 5. Header Styles */
+/* ------------------------------------- */
 
-/* Style for the container that holds the title and the model */
 .header-inline-wrapper {
     display: flex;
-    
-    /* NEW: Keeps items clustered on the left */
     justify-content: flex-start; 
-    
-    /* NEW: Puts exactly 50px of space between the H1 and the model */
     gap: 10px; 
-    
-    /* Vertically aligns the middle of the title with the middle of the model */
     align-items: center; 
-    
-    /* Add space below the whole unit */
     margin-bottom: 20px;
 }
 
-/* Ensure the H1 doesn't have extra margins interfering with alignment */
 .header-inline-wrapper h1 {
     margin: 0;
+}
+
+
+/* ------------------------------------- */
+/* 6. Mobile View Adjustments (Small Screens) */
+/* FIXES EMAIL OVERFLOW */
+/* ------------------------------------- */
+@media (max-width: 600px) {
+    .header-inline-wrapper {
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 0.5em; 
+    }
+
+    #intro .contact {
+        font-size: 0.9em; 
+        margin-top: 0.5em; 
+    }
+
+    .header-inline-wrapper h1 {
+        margin-bottom: 0;
+    }
 }

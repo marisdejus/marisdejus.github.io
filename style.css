@@ -11,7 +11,7 @@ body {
 
 * {
     box-sizing: border-box; 
-    margin: 0;
+    margin: 0; 
     padding: 0;
 }
 
@@ -20,7 +20,6 @@ body {
 /* ------------------------------------- */
 
 main {
-    /* Centers the entire content block */
     max-width: 900px; 
     margin: 40px auto; 
     padding: 0 20px; 
@@ -55,22 +54,25 @@ h2, h3, p, .timeline-item {
 }
 
 /* ----------------------------------------------------- */
-/* 4. Timeline: Responsive, Centered 16:9 Media Embeds (FINAL FIX) */
+/* 4. Timeline: Consistent 16:9 Media Embeds (FINAL WIDTH MATCH) */
 /* ----------------------------------------------------- */
 
 .media-embed {
-    /* 16:9 Aspect Ratio Lock for YouTube/Image consistency */
+    /* 1. Sets up the 16:9 container using the aspect-ratio property */
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9; 
     
-    /* Centering the content within the main column */
+    /* Centering and spacing */
     text-align: center; 
     margin: 2em auto; 
-    overflow: hidden; 
+    overflow: hidden;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
 }
 
-/* Forces all media (iframes, images) to fill the 16:9 box */
+/* 2. Forces all content inside to fill the 16:9 container */
 .media-embed > * {
     position: absolute;
     top: 0;
@@ -80,23 +82,25 @@ h2, h3, p, .timeline-item {
     
     margin: 0 !important;
     border: none !important;
-    /* Default for YouTube iframes: fill the container */
+    /* Default for YouTube: Fills the entire space */
     object-fit: cover; 
     display: block; 
 }
 
-/* 💡 FLICKR FIX: This targets the Flickr image specifically. 
-   It forces the full image to be contained within the 16:9 box, 
-   preventing the unwanted zoom/cropping. */
+/* 3. CRITICAL FLICKR FIX: Set to COVER to ensure it takes up full width (will crop top/bottom) */
+.media-embed a[data-flickr-embed="true"], 
 .media-embed a[data-flickr-embed="true"] img {
-    object-fit: contain; 
-}
-
-/* Ensure Flickr link elements take up the full available space */
-.media-embed a[data-flickr-embed="true"] {
-    display: block; 
-    width: 100%; 
-    height: 100%;
+    /* 💡 SETTING TO COVER FOR FULL WIDTH CONSISTENCY */
+    object-fit: cover; 
+    
+    position: relative !important; 
+    top: 0;
+    left: 0;
+    margin: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
 }
 
 

@@ -20,6 +20,7 @@ body {
 /* ------------------------------------- */
 
 main {
+    /* Centers the entire content block */
     max-width: 900px; 
     margin: 40px auto; 
     padding: 0 20px; 
@@ -54,15 +55,16 @@ h2, h3, p, .timeline-item {
 }
 
 /* ----------------------------------------------------- */
-/* 4. Timeline: Responsive, Centered 16:9 Media Embeds (FIXED) */
+/* 4. Timeline: Responsive, Centered 16:9 Media Embeds (FINAL FIX) */
 /* ----------------------------------------------------- */
 
 .media-embed {
-    /* 16:9 Aspect Ratio Lock for YouTube/Flickr consistency */
+    /* 16:9 Aspect Ratio Lock for YouTube/Image consistency */
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9; 
     
+    /* Centering the content within the main column */
     text-align: center; 
     margin: 2em auto; 
     overflow: hidden; 
@@ -78,15 +80,25 @@ h2, h3, p, .timeline-item {
     
     margin: 0 !important;
     border: none !important;
-    /* This rule causes the zoom/crop if the content is NOT 16:9 (e.g., your vertical image) */
+    /* Default for YouTube iframes: fill the container */
     object-fit: cover; 
-}
-
-/* Ensure Flickr link and image elements behave as blocks within the absolute container */
-.media-embed a[data-flickr-embed="true"],
-.media-embed a[data-flickr-embed="true"] img {
     display: block; 
 }
+
+/* 💡 FLICKR FIX: This targets the Flickr image specifically. 
+   It forces the full image to be contained within the 16:9 box, 
+   preventing the unwanted zoom/cropping. */
+.media-embed a[data-flickr-embed="true"] img {
+    object-fit: contain; 
+}
+
+/* Ensure Flickr link elements take up the full available space */
+.media-embed a[data-flickr-embed="true"] {
+    display: block; 
+    width: 100%; 
+    height: 100%;
+}
+
 
 /* Model Viewer Styles */
 .visual-element model-viewer {

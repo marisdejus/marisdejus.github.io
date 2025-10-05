@@ -54,46 +54,38 @@ h2, h3, p, .timeline-item {
 }
 
 /* ----------------------------------------------------- */
-/* 4. Timeline: Consistent 16:9 Media Embeds (CLEAN RULES) */
+/* 4. Timeline: Responsive Media Embeds (NO SCALING CONFLICTS) */
+/* This section is simplified to allow Flickr script to function. */
 /* ----------------------------------------------------- */
 
 .media-embed {
-    /* 1. Sets up the 16:9 container using the aspect-ratio property */
-    position: relative;
+    /* Ensures the embed is centered */
+    text-align: center;
+    margin: 2em auto;
     width: 100%;
-    aspect-ratio: 16 / 9; 
+}
+
+/* General responsive rule for all media inside the embed container */
+.media-embed iframe,
+.media-embed a,
+.media-embed img {
+    /* Forces the element to take full width of its container, maxing out at the main content column */
+    max-width: 100%;
     
-    /* Centering and spacing */
-    text-align: center; 
-    margin: 2em auto; 
-    overflow: hidden;
-    display: flex; 
-    justify-content: center;
-    align-items: center; 
-}
-
-/* 2. Forces all content (iframes, <a>, <img>) inside to fill the 16:9 box */
-.media-embed > * {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; 
+    /* Ensures the element keeps its natural height/aspect ratio */
+    height: auto;
     
-    margin: 0 !important;
-    border: none !important;
-    /* This ensures YouTube and the Flickr preview image both fill the frame (cover) */
-    object-fit: cover; 
-    display: block; 
+    display: block;
+    margin: 0 auto; /* Center block elements */
+    border: none;
 }
 
-/* 3. Ensures the image inside the link scales correctly */
-.media-embed a img {
-    object-fit: cover;
+/* Specific YouTube sizing fix */
+.media-embed iframe {
     width: 100%;
-    height: 100%;
+    /* Sets a general height for YouTube videos when responsive */
+    aspect-ratio: 16 / 9;
 }
-
 
 /* Model Viewer Styles */
 .visual-element model-viewer {

@@ -54,7 +54,7 @@ h2, h3, p, .timeline-item {
 }
 
 /* ----------------------------------------------------- */
-/* 4. Timeline: Consistent 16:9 Media Embeds (FINAL FIX) */
+/* 4. Timeline: Consistent 16:9 Media Embeds (CONSERVATIVE FIX) */
 /* ----------------------------------------------------- */
 
 .media-embed {
@@ -87,29 +87,36 @@ h2, h3, p, .timeline-item {
     display: block; 
 }
 
-/* 3. CRITICAL FLICKR OVERRIDES */
-/* These rules aggressively force the Flickr-generated content to respect the 16:9 container */
-.media-embed a[data-flickr-embed="true"], 
-.media-embed a[data-flickr-embed="true"] img,
-.media-embed a[data-flickr-embed="true"] > div, /* Targets dynamic wrapper divs */
-.media-embed a[data-flickr-embed="true"] iframe { /* Targets the final iframe */
-    /* Force sizing to fill 16:9 container */
+/* 3. CONSERVATIVE FLICKR OVERRIDES */
+/* Target the Flickr link container and the final IFRAME only to preserve interactivity */
+.media-embed a[data-flickr-embed="true"] {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative; /* Must be relative for absolute children */
+}
+
+.media-embed a[data-flickr-embed="true"] iframe {
+    /* Force sizing for the iframe the script inserts */
     width: 100% !important;
     height: 100% !important;
     
     /* Ensure the vertical image fills the width, accepting cropping */
     object-fit: cover !important; 
     
-    /* Ensure no positioning conflict with the parent .media-embed */
     position: absolute !important; 
     top: 0 !important;
     left: 0 !important;
     margin: 0 !important;
-    padding: 0 !important;
-    
-    /* Ensures the interactive layer is on top */
-    z-index: 2; 
 }
+
+/* We still target the initial image to look good before the script loads */
+.media-embed a[data-flickr-embed="true"] img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
 
 /* Model Viewer Styles */
 .visual-element model-viewer {

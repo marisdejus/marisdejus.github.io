@@ -80,12 +80,17 @@ h2, h3, p, .timeline-item {
     border: none;
 }
 
-/* Specific YouTube sizing fix */
-.media-embed iframe {
+/* Specific YouTube sizing fix: Only apply 16:9 ratio to YouTube iframes */
+.media-embed iframe[src*="youtube.com"], 
+.media-embed iframe[src*="youtu.be"] {
     width: 100%;
-    /* Sets a general height for YouTube videos when responsive */
-    aspect-ratio: 16 / 9;
+    /* Ensures YouTube videos maintain the standard widescreen ratio */
+    aspect-ratio: 16 / 9; 
+    height: auto; 
 }
+
+/* All other iframes (like Bandcamp) will now inherit width: 100% 
+   from the general .media-embed styles and use the height set in the HTML. */
 
 /* Model Viewer Styles */
 .visual-element model-viewer {

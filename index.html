@@ -76,35 +76,42 @@
 // ═══════════════════════════════════════════════
 // CONTENT
 // ═══════════════════════════════════════════════
-// All stages except stage 0 are 33% smaller than original
+// Stage font sizes are computed dynamically in computeStages()
+// based on canvas width — see below
 let stages = [
-  // Stage 0 — name, large, interactive (font computed dynamically)
   { lines: ['Māris', 'Dejus'], fontSize: 249, spacing: 270 },
-
-  // Stage 1 — headline + tagline
-  {
-    lines: [
-      'I make things that change how people hear and see.',
-      'Sound / Image / Code'
-    ],
-    fontSize: 40, spacing: 60
-  },
-
-  // Stage 2 — offer
-  {
-    lines: [
-      'Music, sound design, motion graphics, video art.',
-      'For brands, agencies, theatres and productions.'
-    ],
-    fontSize: 27, spacing: 66
-  },
-
-  // Stage 3 — contact, then matrix
-  {
-    lines: ['dejusmaris@gmail.com'],
-    fontSize: 15, spacing: 26
-  }
+  { lines: ['I make things that change how people hear and see.', 'Sound / Image / Code'], fontSize: 40, spacing: 60 },
+  { lines: ['Music, sound design, motion graphics, video art.', 'For brands, agencies, theatres and productions.'], fontSize: 27, spacing: 66 },
+  { lines: ['dejusmaris@gmail.com'], fontSize: 15, spacing: 26 }
 ];
+
+function computeStages(w) {
+  // For each stage, find font size so the longest line fits within canvas width
+  // No line breaking — pure scaling
+  const pad = Math.max(16, Math.floor(w * 0.05));
+  const availW = w - pad * 2;
+
+  function fitFontSize(lines, maxFs, minFs) {
+    let fs = maxFs;
+    // find the widest line at maxFs
+    // binary search downward until all lines fit
+    for (let attempt = 0; attempt < 60; attempt++) {
+      // can't call p.textWidth outside draw — use approximation: Kode Mono is ~0.62 ratio
+      const charW = fs * 0.62;
+      const longest = Math.max(...lines.map(l => l.length * charW));
+      if (longest <= availW) break;
+      fs = Math.floor(fs * availW / longest * 0.95);
+    }
+    return Math.max(minFs, Math.min(maxFs, fs));
+  }
+
+  stages[1].fontSize = fitFontSize(stages[1].lines, Math.min(40, Math.floor(w * 0.05)), 10);
+  stages[1].spacing = Math.floor(stages[1].fontSize * 1.7);
+  stages[2].fontSize = fitFontSize(stages[2].lines, Math.min(27, Math.floor(w * 0.035)), 9);
+  stages[2].spacing = Math.floor(stages[2].fontSize * 2.5);
+  stages[3].fontSize = fitFontSize(stages[3].lines, Math.min(15, Math.floor(w * 0.025)), 8);
+  stages[3].spacing = Math.floor(stages[3].fontSize * 1.8);
+}
 
 // ═══════════════════════════════════════════════
 // AUDIO
@@ -290,16 +297,17 @@ const sketch = function(p) {
 
   let staticHoverHues = {};
 
-  function wrapLines(textArray, fontSize) {
+  function wrapLines(textArray, fontSize, noWrap) {
     const wrapped = [];
     p.textSize(fontSize);
     for (let line of textArray) {
       if (!line) { wrapped.push(''); continue; }
+      if (noWrap) { wrapped.push(line); continue; }
       const words = line.split(' ');
       let cur = '';
       for (const word of words) {
         const test = cur + word + ' ';
-        if (p.textWidth(test) > p.width - margin * 2) { wrapped.push(cur.trim()); cur = word + ' '; }
+        if (p.textWidth(test) > p.width - Math.max(20, margin) * 2) { wrapped.push(cur.trim()); cur = word + ' '; }
         else cur = test;
       }
       wrapped.push(cur.trim());
@@ -308,16 +316,16 @@ const sketch = function(p) {
   }
 
   function computeTitleSize() {
-    const pad = Math.floor(p.width * 0.04);
+    const pad = Math.floor(p.width * 0.06);
     const availW = p.width - pad * 2;
     p.textSize(100);
-    const refW = Math.max(p.textWidth('M\u0101ris'), p.textWidth('Dejus'));
-    let fs = Math.floor(100 * availW / refW);
+    const refW = Math.max(p.textWidth('Māris'), p.textWidth('Dejus'));
+    let fs = Math.floor(100 * availW / refW * 0.92);
     p.textSize(fs);
-    const checkW = Math.max(p.textWidth('M\u0101ris'), p.textWidth('Dejus'));
-    if (checkW > availW) fs = Math.floor(fs * (availW / checkW));
+    const checkW = Math.max(p.textWidth('Māris'), p.textWidth('Dejus'));
+    if (checkW > availW) fs = Math.floor(fs * (availW / checkW) * 0.92);
     fs = Math.min(fs, Math.floor(p.height * 0.36));
-    fs = Math.max(fs, 20);
+    fs = Math.max(fs, 18);
     titleFontSize = fs;
     titleSpacing = Math.floor(fs * 1.05);
   }
@@ -326,7 +334,7 @@ const sketch = function(p) {
     computeTitleSize();
     const lines = wrapLines(stages[0].lines, titleFontSize);
     staticParticles = [];
-    const pad = Math.floor(p.width * 0.04);
+    const pad = Math.floor(p.width * 0.06);
     const availW = p.width - pad * 2;
     p.textSize(titleFontSize);
     const yStart = p.height / 2 - ((lines.length - 1) * titleSpacing) / 2;
@@ -349,7 +357,8 @@ const sketch = function(p) {
 
   function showStatic(idx) {
     const fontSize = idx === 0 ? titleFontSize : stages[idx].fontSize;
-    currentStatic = wrapLines(stages[idx].lines, fontSize);
+    const noWrap = idx > 0;
+    currentStatic = wrapLines(stages[idx].lines, fontSize, noWrap);
   }
 
   function getStaticBaseY() { return centerY; }
@@ -415,7 +424,7 @@ const sketch = function(p) {
     if (index === 0) {
       const lines = wrapLines(data.lines, titleFontSize);
       p.textSize(titleFontSize);
-      const pad = Math.floor(p.width * 0.04);
+      const pad = Math.floor(p.width * 0.06);
       const availW = p.width - pad * 2;
       const yStart = p.height / 2 - ((lines.length - 1) * titleSpacing) / 2;
       for (let i = 0; i < lines.length; i++) {
@@ -433,7 +442,7 @@ const sketch = function(p) {
       return;
     }
 
-    const lines = wrapLines(data.lines, data.fontSize);
+    const lines = wrapLines(data.lines, data.fontSize, index > 0);
     let y = isLast
       ? p.height - margin - (lines.length - 1) * data.spacing
       : getStaticBaseY() - ((lines.length - 1) * data.spacing) / 2;
@@ -501,6 +510,7 @@ const sketch = function(p) {
     p.noStroke();
     centerX = p.width / 2;
     centerY = p.height / 3;
+    computeStages(p.width);
     // build title on first draw frame so font is guaranteed loaded
   };
 
@@ -599,6 +609,7 @@ const sketch = function(p) {
     const hero = document.getElementById('hero');
     p.resizeCanvas(hero.offsetWidth, hero.offsetHeight);
     centerX = p.width / 2; centerY = p.height / 3;
+    computeStages(p.width);
     if (stage === 0) { titleReady = false; }
     else if (stage < stages.length) { showStatic(stage); }
   };

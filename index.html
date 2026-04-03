@@ -334,22 +334,18 @@ const sketch = function(p) {
     computeTitleSize();
     const lines = wrapLines(stages[0].lines, titleFontSize);
     staticParticles = [];
-    const pad = Math.floor(p.width * 0.06);
-    const availW = p.width - pad * 2;
     p.textSize(titleFontSize);
     const yStart = p.height / 2 - ((lines.length - 1) * titleSpacing) / 2;
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
       if (!line) continue;
       const lineW = p.textWidth(line);
-      const n = line.length;
-      const gap = n > 1 ? (availW - lineW) / (n - 1) * 0.7 : 0;
-      let x = pad;
-      for (let j = 0; j < n; j++) {
+      let x = centerX - lineW / 2;
+      for (let j = 0; j < line.length; j++) {
         const ch = line[j];
         const cw = p.textWidth(ch);
         staticParticles.push(new StaticChar(ch, x + cw/2, yStart + i*titleSpacing, titleFontSize, chordProgression[0]));
-        x += cw + gap;
+        x += cw;
       }
     }
     currentChordStage = 0;
@@ -367,9 +363,7 @@ const sketch = function(p) {
     const s = stages[stage];
     p.textSize(s.fontSize);
     const isLast = stage === stages.length - 1;
-    let yStart = isLast
-      ? p.height - margin - (currentStatic.length - 1) * s.spacing
-      : getStaticBaseY() - ((currentStatic.length - 1) * s.spacing) / 2;
+    let yStart = getStaticBaseY() - ((currentStatic.length - 1) * s.spacing) / 2;
 
     for (let i = 0; i < currentStatic.length; i++) {
       const line = currentStatic[i];
@@ -443,9 +437,7 @@ const sketch = function(p) {
     }
 
     const lines = wrapLines(data.lines, data.fontSize, index > 0);
-    let y = isLast
-      ? p.height - margin - (lines.length - 1) * data.spacing
-      : getStaticBaseY() - ((lines.length - 1) * data.spacing) / 2;
+    let y = getStaticBaseY() - ((lines.length - 1) * data.spacing) / 2;
     p.textSize(data.fontSize);
     for (let l = 0; l < lines.length; l++) {
       const line = lines[l];

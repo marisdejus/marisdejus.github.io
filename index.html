@@ -1,262 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maris Dejus Media Studio</title>
-<link rel="stylesheet" href="style.css"> 
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/1.12.0/model-viewer.min.js"></script>
+  <meta charset="UTF-8"/>
+  <title>Māris Dejus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0; padding: 0;
+      background: #111;
+      font-family: 'Kode Mono', monospace;
+      transition: background 0.2s, color 0.2s;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    body.light { background: #fff; }
+
+    /* ── HERO SECTION ── */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #hero canvas {
+      display: block;
+      position: absolute;
+      top: 0; left: 0;
+    }
+
+    /* disclaimer bar */
+    #disclaimer {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+      font-family: 'Kode Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: #555;
+      pointer-events: none;
+      z-index: 10;
+      line-height: 1.8;
+      transition: color 0.2s;
+    }
+
+    body.light #disclaimer { color: #aaa; }
+
+    /* scroll arrow */
+    #scroll-arrow:hover { color: #ccc; }
+    body.light #scroll-arrow { color: #bbb; }
+
+  </style>
 </head>
 <body>
-    <main>
-      <header id="intro">
-      
-    <div class="header-inline-wrapper">
-        <h1>Maris Dejus</h1>
-        <div class="visual-element">
-    <model-viewer 
-        src="assets/head.glb"
-        alt="Rotating 3D model of a head"
-        exposure="0.02"  
-      
-    projection="orthographic"
-        auto-rotate 
-         rotation-per-second="-60deg" 
-        auto-rotate-delay="0.01"
-        shadow-intensity="0" disable-zoom 
-      
-        style="width: 90px; height: 90px;"> </model-viewer>
-</div>
-                  <p class="contact"><a href="mailto:marisdejus123456789@gmail.com">marisdejus123456789@gmail.com</a></p>
 
-    </div>
-    </header>
-        
-        <hr> 
-        
-    <section id="timeline">
-        
-                         <div class="timeline-item">
-    <div class="media-embed">
- <iframe style="border: 0; height: 300px;" src="https://bandcamp.com/EmbeddedPlayer/album=989179852/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://demaui.bandcamp.com/album/formas">Formas by Demaui</a></iframe>
-                             </div>
-</div>
-        
-        
-                         <div class="timeline-item">
-    <div class="media-embed">
- <iframe style="border: 0; height: 300px;" src="https://bandcamp.com/EmbeddedPlayer/album=262868904/size=large/bgcol=ffffff/linkcol=0687f5/minimal=true/transparent=true/" seamless><a href="https://demaui.bandcamp.com/album/12345">12345 by Demaui</a></iframe>
-                             </div>
-</div>
-        
-                    <div class="timeline-item">
-    <div class="media-embed">
-   <iframe style="border: 0; height: 300px;" src="https://bandcamp.com/EmbeddedPlayer/album=897444716/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://demaui.bandcamp.com/album/tracis">Tracis by Demaui</a></iframe>
-                        </div>
-</div>
-                
-        
-        <div class="timeline-item">
-             <div class="media-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KeL9ol69wTo?si=TsK_GebfpZndYXqX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        
-        
-        
-        <div class="timeline-item">
-             <div class="media-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yw69E1cynFw?si=USQPBxWR_oq1qjPS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        
-        
-        <div class="timeline-item">
-             <div class="media-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5BHVTP1gpo8?si=UMRFP3h-PQ4-v6UB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        
-            <div class="timeline-item">
-             <div class="media-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/t8Xf5GWCiBg?si=gEOLipq0SFPpjeBq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  </div>
-        
-                 <div class="timeline-item">
-             <div class="media-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/29B5dI9iCRA?si=L8c_IpsKChZ9hPqt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-             </div>
-       
-        
-         <div class="timeline-item">
-             <div class="media-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XX01HL4_-1s?si=KcDfv17UBQ0d7q8C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-             </div>
-                    
-               <div class="timeline-item">
-    <div class="media-embed">
-      <iframe style="border: 0; height: 300px;" src="https://bandcamp.com/EmbeddedPlayer/album=2988797953/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://demaui.bandcamp.com/album/simul-cija-gaisma">Simulācija Gaisma by Demaui</a></iframe>
-    </div>
-</div>
-                
-          <div class="timeline-item">
-             <div class="media-embed">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/goKo95ogOyg?si=w2pWXTBE0jOuQBdV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
-        
-          <div class="timeline-item">
-             <div class="media-embed">
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/iJ9bu2l4s04?si=FTMZO41adbxSeRhF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
-        
-        
-         <div class="timeline-item">
-             <div class="media-embed">
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/rCrsRmyQfdM?si=V9gwJo4j6uKBX2x1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-             </div>
-        
-         <div class="timeline-item">
-             <div class="media-embed">
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/Uw171OxJXGo?si=8_3_5vPHkbbbpgqV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>     </div>
-        
-           <div class="timeline-item">
-             <div class="media-embed">
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/sdjOG8dUnJw?si=6-SvF2w0wYLOW6GH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-               </div>
-        
-                     <div class="timeline-item">
-             <div class="media-embed">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/nVJRTUCDVpg?si=HShLq7ExTqAea2pp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
-                         </div>  
+<!-- ── HERO ── -->
+<section id="hero">
+</section>
 
-                          <div class="timeline-item">
-    <div class="media-embed">
-      <iframe style="border: 0; height: 300px;" src="https://bandcamp.com/EmbeddedPlayer/album=3261676268/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://demaui.bandcamp.com/album/tribe">TRIBE by Demaui</a></iframe> </div>
-</div>
-        
-                  <div class="timeline-item">
-    <div class="media-embed">
-      <iframe style="border: 0; height: 300px;" src="https://bandcamp.com/EmbeddedPlayer/album=873744177/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="https://demaui.bandcamp.com/album/maids">Maids by Demaui</a></iframe>
-              </div>
-</div>
-        
-          <div class="timeline-item">
-    <div class="media-embed">
-      <iframe style="border: 0; height: 300px;" src="https://bandcamp.com/EmbeddedPlayer/album=2284302158/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=true/transparent=true/" seamless><a href="https://demaui.bandcamp.com/album/alba">ALBA by Demaui</a></iframe>
-    </div>
-</div>
-        
-               <div class="timeline-item">
-             <div class="media-embed">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/G6rcdhbFUD4?si=D_9qP8nJB9uqZpO2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    </div>         
-        
-                      <div class="timeline-item">
-             <div class="media-embed">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/VDg1jlRug7Q?si=SSI-NwaeDjPEjcXc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>        </div>
-        </div>         
-        
-            <div class="timeline-item">
-    <div class="media-embed">
-       <iframe style="border: 0; height: 300px;" src="https://bandcamp.com/EmbeddedPlayer/album=788572157/size=large/bgcol=ffffff/linkcol=0687f5/tracklist-true/transparent=true/" seamless><a href="https://demaui.bandcamp.com/album/assorti-i">ASSORTI I by Demaui</a></iframe>     </div>
-</div>
-        
-              <div class="timeline-item">
-             <div class="media-embed">
-           <iframe width="560" height="315" src="https://www.youtube.com/embed/vJ04mf3oHVo?si=ui828xqSylUXqxFx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  </div>
-        </div> 
-        
-          <div class="timeline-item">
-             <div class="media-embed">
-           <iframe width="560" height="315" src="https://www.youtube.com/embed/iKI63zgRJaA?si=ZdqFfR3WypAl9R26" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
-        </div> 
-        
-    <div class="timeline-item">
-    <div class="media-embed">
-        <iframe 
-            style="border: 0; height: 300px;" 
-            src="https://bandcamp.com/EmbeddedPlayer/album=60206757/size=large/bgcol=ffffff/linkcol=0687f5/artwork=large/tracklist=true/transparent=true/" 
-            seamless>
-            <a href="https://demaui.bandcamp.com/album/4u">4u by Demaui</a>
-        </iframe> 
-    </div>
-</div>
-        
-     
-        
-      <div class="timeline-item">
-             <div class="media-embed">
-           <iframe width="560" height="315" src="https://www.youtube.com/embed/5WvaDTbTYXQ?si=PXj5uRY04uVilC4w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    
-                    </div>
-        </div> 
-        
-        
-            <div class="timeline-item">
-             <div class="media-embed">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/CyIYieTMHkU?si=A7_wXNT0sd9tgf-C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-        </div> 
-    
-        
-        <div class="timeline-item">
-             <div class="media-embed">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/bQI1L3qeUFw?si=gypNolcWYPfWqW-U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
-            </div>
-        </div> 
-                
-        
-          <div class="timeline-item">
-             <div class="media-embed">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/x-RBfGHQP-E?si=IyfEgauFSi-wDWkv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
-        </div> 
-                
-        
-          <div class="timeline-item">
-             <div class="media-embed">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/0cwqk83oDb8?si=Q4hevvnriPz2vEiS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
-        </div> 
-                
-        
-<div class="timeline-item">
-    <div class="media-embed">
-        <iframe 
-            style="border: 0; height: 300px;" 
-            src="https://bandcamp.com/EmbeddedPlayer/album=3423420139/size=large/bgcol=ffffff/linkcol=0687f5/artwork=large/tracklist=true/transparent=true/" 
-            seamless>
-                <a href="https://demaui.bandcamp.com/album/ataraxia">Ataraxia by Demaui</a>
-        </iframe>
-    </div>
-</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+<script>
 
-        
-        <div class="timeline-item">
-             <div class="media-embed">
-           <a data-flickr-embed="true" href="https://www.flickr.com/photos/141304340@N02/albums/72177720329516712" title="Selected DSLR Images"><img src="https://live.staticflickr.com/1444/25448709754_a68081c8b4_h.jpg" width="1600" height="1200" alt="Selected DSLR Images"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
-            </div>
-        </div> 
+// ═══════════════════════════════════════════════
+// CONTENT
+// ═══════════════════════════════════════════════
+// All stages except stage 0 are 33% smaller than original
+let stages = [
+  // Stage 0 — name, large, interactive (font computed dynamically)
+  { lines: ['Māris', 'Dejus'], fontSize: 249, spacing: 270 },
 
-        <!-- SECOND ITEM: YouTube -->
-         <div class="timeline-item">
-             <div class="media-embed">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/5MdxYl9xHx4?si=lpMzsDbSP6C1QsE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-             </div>
-        </div> 
-        
-        <!-- THIRD ITEM: YouTube -->
-        <div class="timeline-item">
-             <div class="media-embed">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/_nF3A2OX-Qw?si=NTeJKdzIZxgZ8QAr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div> 
+  // Stage 1 — headline + tagline
+  {
+    lines: [
+      'I make things that change how people hear and see.',
+      'Sound / Image / Code'
+    ],
+    fontSize: 40, spacing: 60
+  },
 
-           
-        <!-- FOURTH ITEM: YouTube -->
-         <div class="timeline-item">
-             <div class="media-embed">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/ySKKNKaQqec?si=yloAN8H_se5cyOpb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div> 
-            
-    </section>
-    </main>
+  // Stage 2 — offer
+  {
+    lines: [
+      'Music, sound design, motion graphics, video art.',
+      'For brands, agencies, theatres and productions.'
+    ],
+    fontSize: 27, spacing: 66
+  },
+
+  // Stage 3 — contact, then matrix
+  {
+    lines: ['dejusmaris@gmail.com'],
+    fontSize: 15, spacing: 26
+  }
+];
+
+// ═══════════════════════════════════════════════
+// AUDIO
+// ═══════════════════════════════════════════════
+let masterGain;
+let audioCtx;
+
+const chordProgression = ['C', 'Am', 'C', 'G'];
+const chords = {
+  C:  [261.63, 329.63, 392.00, 523.25, 659.25, 783.99],
+  Am: [220.00, 261.63, 329.63, 440.00, 523.25, 659.25],
+  G:  [196.00, 246.94, 392.00, 493.88, 587.33, 783.99]
+};
+
+// ═══════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════
+let staticParticles = [];
+let floatingParticles = [];
+let centerX, centerY;
+let margin = 40;
+let stage = 0;
+let currentChordStage = 0;
+let matrixMode = false;
+let currentStatic = null;
+let draggingParticle = null;
+let isDarkMode = true;
+let p5canvas;
+// computed title size — kept separate so stages[0] is never mutated on resize
+let titleFontSize = 249;
+let titleSpacing = 270;
+let titleReady = false; // set true once showStatic(0) runs inside draw loop
+
+// ═══════════════════════════════════════════════
+// P5 INSTANCE (scoped to #hero)
+// ═══════════════════════════════════════════════
+const sketch = function(p) {
+
+  // ── classes first so they exist when setup/draw run ──
+
+  class StaticChar {
+    constructor(char, x, y, size, chord) {
+      this.char = char;
+      this.x = x; this.y = y;
+      this.homeX = x; this.homeY = y;
+      this.size = size; this.chord = chord;
+      this.hue = 0; this.hovered = false; this.wasHovered = false;
+      this.vx = 0; this.vy = 0;
+    }
+    applyRepulsion() {
+      const dx = this.x - p.mouseX, dy = this.y - p.mouseY;
+      const dSq = dx*dx + dy*dy;
+      const r = 130;
+      if (dSq < r*r) {
+        const d = Math.sqrt(dSq) || 0.01;
+        const f = (r - d) / r;
+        this.vx += (dx/d) * f * 3.5;
+        this.vy += (dy/d) * f * 3.5;
+      }
+    }
+    update() {
+      this.vx += (this.homeX - this.x) * 0.08;
+      this.vy += (this.homeY - this.y) * 0.08;
+      this.vx *= 0.75; this.vy *= 0.75;
+      this.x += this.vx; this.y += this.vy;
+    }
+    isMouseOver() {
+      p.textSize(this.size);
+      return p.dist(p.mouseX, p.mouseY, this.x, this.y) < p.textWidth(this.char) * 1.0;
+    }
+    display() {
+      p.textSize(this.size);
+      p.fill(this.hovered ? this.hue : 0, this.hovered ? 100 : 0, this.hovered ? 100 : (isDarkMode ? 90 : 15));
+      p.text(this.char, this.x, this.y);
+    }
+    playSound() {
+      if (!audioCtx || audioCtx.state !== 'running' || !masterGain) return;
+      const freqs = chords[this.chord];
+      const base = freqs[this.char.charCodeAt(0) % freqs.length];
+      const freq = base * Math.pow(2, Math.floor(p.random(-1,2))) * Math.pow(2, p.random(-3,3)/1200);
+      const osc = audioCtx.createOscillator(), g = audioCtx.createGain();
+      const filt = audioCtx.createBiquadFilter(), pan = audioCtx.createStereoPanner();
+      osc.type = 'sine'; osc.frequency.value = freq;
+      g.gain.setValueAtTime(0, audioCtx.currentTime);
+      g.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 0.02);
+      filt.type = 'lowpass'; filt.frequency.value = 600;
+      pan.pan.value = p.map(this.x, 0, p.width, -1, 1);
+      osc.connect(g); g.connect(filt); filt.connect(pan); pan.connect(masterGain);
+      osc.start();
+      g.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.2);
+      osc.stop(audioCtx.currentTime + 0.25);
+    }
+  }
+
+  class Particle {
+    constructor(char, x, y, size) {
+      this.char = char; this.x = x; this.y = y; this.size = size;
+      this.vx = p.random(-0.5,0.5); this.vy = p.random(-0.5,0.5);
+      this.hue = p.random(360);
+      this.isDragging = false; this.offsetX = 0; this.offsetY = 0;
+      this.hoverPlayed = false;
+      this.oscillator = null; this.gainNode = null; this.panner = null; this.filter = null;
+    }
+    update() {
+      const over = this.isMouseOver();
+      if (over && !this.hoverPlayed && !this.isDragging) {
+        this.hue = p.random(360); this.playSound(false); this.hoverPlayed = true;
+      }
+      if (!over) this.hoverPlayed = false;
+
+      if (this.isDragging) {
+        this.x = p.mouseX + this.offsetX;
+        this.y = p.mouseY + this.offsetY;
+        if (this.panner) this.panner.pan.setValueAtTime(p.map(this.x, 0, p.width, -1, 1), audioCtx.currentTime);
+        if (this.filter) this.filter.frequency.setValueAtTime(p.map(this.y, 0, p.height, 8000, 300), audioCtx.currentTime);
+      } else {
+        const dx = this.x - p.mouseX, dy = this.y - p.mouseY;
+        const dSq = dx*dx + dy*dy;
+        const r = Math.max(60, this.size * 0.8);
+        if (dSq < r*r) {
+          const d = Math.sqrt(dSq) || 0.01;
+          const f = (r - d) / r;
+          this.vx += (dx/d) * f * 2.5;
+          this.vy += (dy/d) * f * 2.5;
+        }
+        this.vx += p.random(-0.05, 0.05); this.vy += p.random(-0.05, 0.05);
+        this.x += this.vx; this.y += this.vy;
+        const bm = Math.max(margin, this.size * 0.5);
+        if (this.x < bm || this.x > p.width - bm)  { this.vx *= -1; this.x = p.constrain(this.x, bm, p.width - bm); }
+        if (this.y < bm || this.y > p.height - bm) { this.vy *= -1; this.y = p.constrain(this.y, bm, p.height - bm); }
+        this.vx *= 0.995; this.vy *= 0.995;
+      }
+      this.hue = (this.hue + 0.5) % 360;
+    }
+    display() {
+      p.fill(this.hue, 100, 100);
+      p.textSize(this.size);
+      p.text(this.char, this.x, this.y);
+    }
+    isMouseOver() {
+      p.textSize(this.size);
+      return p.dist(p.mouseX, p.mouseY, this.x, this.y) < p.textWidth(this.char);
+    }
+    playSound(sustain = false) {
+      if (!audioCtx || !masterGain) return;
+      const chord = chordProgression[Math.min(currentChordStage, chordProgression.length - 1)];
+      const freqs = chords[chord];
+      const base = freqs[this.char.charCodeAt(0) % freqs.length];
+      const freq = base * Math.pow(2, Math.floor(p.random(-1,2)));
+      const osc = audioCtx.createOscillator(), g = audioCtx.createGain();
+      const filt = audioCtx.createBiquadFilter(), eq = audioCtx.createBiquadFilter();
+      const pan = audioCtx.createStereoPanner();
+      osc.type = 'sine'; osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      g.gain.setValueAtTime(0, audioCtx.currentTime);
+      g.gain.linearRampToValueAtTime(0.05, audioCtx.currentTime + 0.01);
+      filt.type = 'lowpass'; filt.frequency.setValueAtTime(600, audioCtx.currentTime);
+      const panVal = p.map(this.x, 0, p.width, -1, 1);
+      pan.pan.setValueAtTime(panVal, audioCtx.currentTime);
+      if (sustain) this.panner = pan;
+      eq.type = 'lowshelf'; eq.frequency.setValueAtTime(400, audioCtx.currentTime);
+      eq.gain.setValueAtTime(p.map(Math.abs(panVal), 0, 1, 0, -12), audioCtx.currentTime);
+      osc.connect(g); g.connect(filt); filt.connect(eq); eq.connect(pan); pan.connect(masterGain);
+      osc.start();
+      if (sustain) {
+        filt.frequency.linearRampToValueAtTime(6000, audioCtx.currentTime + 1.5);
+        this.oscillator = osc; this.gainNode = g; this.filter = filt;
+      } else {
+        g.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.2);
+        osc.stop(audioCtx.currentTime + 0.25);
+      }
+    }
+    stopSound() {
+      if (this.oscillator && this.gainNode) {
+        this.gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.1);
+        this.oscillator.stop(audioCtx.currentTime + 0.15);
+        this.oscillator.disconnect(); this.gainNode.disconnect();
+        this.oscillator = null; this.gainNode = null;
+      }
+    }
+  }
+
+  // ── helpers ──
+
+  let staticHoverHues = {};
+
+  function wrapLines(textArray, fontSize) {
+    const wrapped = [];
+    p.textSize(fontSize);
+    for (let line of textArray) {
+      if (!line) { wrapped.push(''); continue; }
+      const words = line.split(' ');
+      let cur = '';
+      for (const word of words) {
+        const test = cur + word + ' ';
+        if (p.textWidth(test) > p.width - margin * 2) { wrapped.push(cur.trim()); cur = word + ' '; }
+        else cur = test;
+      }
+      wrapped.push(cur.trim());
+    }
+    return wrapped;
+  }
+
+  function computeTitleSize() {
+    const pad = Math.floor(p.width * 0.04);
+    const availW = p.width - pad * 2;
+    p.textSize(100);
+    const refW = Math.max(p.textWidth('M\u0101ris'), p.textWidth('Dejus'));
+    let fs = Math.floor(100 * availW / refW);
+    p.textSize(fs);
+    const checkW = Math.max(p.textWidth('M\u0101ris'), p.textWidth('Dejus'));
+    if (checkW > availW) fs = Math.floor(fs * (availW / checkW));
+    fs = Math.min(fs, Math.floor(p.height * 0.36));
+    fs = Math.max(fs, 20);
+    titleFontSize = fs;
+    titleSpacing = Math.floor(fs * 1.05);
+  }
+
+  function buildTitle() {
+    computeTitleSize();
+    const lines = wrapLines(stages[0].lines, titleFontSize);
+    staticParticles = [];
+    const pad = Math.floor(p.width * 0.04);
+    const availW = p.width - pad * 2;
+    p.textSize(titleFontSize);
+    const yStart = p.height / 2 - ((lines.length - 1) * titleSpacing) / 2;
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      if (!line) continue;
+      const lineW = p.textWidth(line);
+      const n = line.length;
+      const gap = n > 1 ? (availW - lineW) / (n - 1) * 0.7 : 0;
+      let x = pad;
+      for (let j = 0; j < n; j++) {
+        const ch = line[j];
+        const cw = p.textWidth(ch);
+        staticParticles.push(new StaticChar(ch, x + cw/2, yStart + i*titleSpacing, titleFontSize, chordProgression[0]));
+        x += cw + gap;
+      }
+    }
+    currentChordStage = 0;
+  }
+
+  function showStatic(idx) {
+    const fontSize = idx === 0 ? titleFontSize : stages[idx].fontSize;
+    currentStatic = wrapLines(stages[idx].lines, fontSize);
+  }
+
+  function getStaticBaseY() { return centerY; }
+
+  function drawStaticText() {
+    const s = stages[stage];
+    p.textSize(s.fontSize);
+    const isLast = stage === stages.length - 1;
+    let yStart = isLast
+      ? p.height - margin - (currentStatic.length - 1) * s.spacing
+      : getStaticBaseY() - ((currentStatic.length - 1) * s.spacing) / 2;
+
+    for (let i = 0; i < currentStatic.length; i++) {
+      const line = currentStatic[i];
+      if (!line) continue;
+      const lineWidth = p.textWidth(line);
+      let x = centerX - lineWidth / 2;
+      const y = yStart + i * s.spacing;
+      for (let j = 0; j < line.length; j++) {
+        const ch = line[j];
+        const cw = p.textWidth(ch);
+        const cx = x + cw / 2;
+        const key = stage + '_' + i + '_' + j;
+        const over = p.dist(p.mouseX, p.mouseY, cx, y) < cw * 0.8;
+        if (over) {
+          if (!staticHoverHues[key]) {
+            staticHoverHues[key] = p.random(360);
+            if (audioCtx && audioCtx.state === 'running' && masterGain) playStaticSound(ch.charCodeAt(0), cx);
+          }
+          p.fill(staticHoverHues[key], 100, 100);
+        } else {
+          staticHoverHues[key] = null;
+          p.fill(0, 0, isDarkMode ? 90 : 10);
+        }
+        p.text(ch, x, y);
+        x += cw;
+      }
+    }
+  }
+
+  function playStaticSound(charCode, x) {
+    const chord = chordProgression[Math.min(currentChordStage, chordProgression.length - 1)];
+    const freqs = chords[chord];
+    const base = freqs[charCode % freqs.length];
+    const freq = base * Math.pow(2, Math.floor(p.random(-1,2))) * Math.pow(2, p.random(-3,3)/1200);
+    const osc = audioCtx.createOscillator(), g = audioCtx.createGain();
+    const filt = audioCtx.createBiquadFilter(), pan = audioCtx.createStereoPanner();
+    osc.type = 'sine'; osc.frequency.value = freq;
+    g.gain.setValueAtTime(0, audioCtx.currentTime);
+    g.gain.linearRampToValueAtTime(0.06, audioCtx.currentTime + 0.02);
+    filt.type = 'lowpass'; filt.frequency.value = 600;
+    pan.pan.value = p.map(x, 0, p.width, -1, 1);
+    osc.connect(g); g.connect(filt); filt.connect(pan); pan.connect(masterGain);
+    osc.start();
+    g.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.2);
+    osc.stop(audioCtx.currentTime + 0.25);
+  }
+
+  function animateStage(index) {
+    const data = stages[index];
+    const isLast = index === stages.length - 1;
+
+    if (index === 0) {
+      const lines = wrapLines(data.lines, titleFontSize);
+      p.textSize(titleFontSize);
+      const pad = Math.floor(p.width * 0.04);
+      const availW = p.width - pad * 2;
+      const yStart = p.height / 2 - ((lines.length - 1) * titleSpacing) / 2;
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        if (!line) continue;
+        const lineW = p.textWidth(line);
+        const gap = line.length > 1 ? (availW - lineW) / (line.length - 1) * 0.7 : 0;
+        let x = pad;
+        for (let j = 0; j < line.length; j++) {
+          const ch = line[j]; const cw = p.textWidth(ch);
+          floatingParticles.push(new Particle(ch, x + cw/2, yStart + i*titleSpacing, titleFontSize));
+          x += cw + gap;
+        }
+      }
+      return;
+    }
+
+    const lines = wrapLines(data.lines, data.fontSize);
+    let y = isLast
+      ? p.height - margin - (lines.length - 1) * data.spacing
+      : getStaticBaseY() - ((lines.length - 1) * data.spacing) / 2;
+    p.textSize(data.fontSize);
+    for (let l = 0; l < lines.length; l++) {
+      const line = lines[l];
+      if (!line) { y += data.spacing; continue; }
+      let x = centerX - p.textWidth(line) / 2;
+      for (let i = 0; i < line.length; i++) {
+        const ch = line[i]; const w = p.textWidth(ch);
+        floatingParticles.push(new Particle(ch, x + w/2, y, data.fontSize));
+        x += w;
+      }
+      y += data.spacing;
+    }
+  }
+
+  function advanceStage() {
+    currentChordStage = stage;
+    animateStage(stage);
+    currentStatic = null;
+    staticHoverHues = {};
+    stage++;
+    if (stage === stages.length - 1 && !matrixMode) {
+      matrixMode = true;
+      for (const fp of floatingParticles) { fp.vx = 0; fp.vy = p.random(0.5, 2); }
+    }
+    if (stage < stages.length) showStatic(stage);
+    const hint = document.getElementById('hint');
+    if (hint) hint.style.opacity = '0';
+  }
+
+  function toggleTheme() {
+    isDarkMode = !isDarkMode;
+    document.body.style.background = isDarkMode ? '#111' : 'white';
+    document.body.classList.toggle('light', !isDarkMode);
+  }
+
+  function initAudio() {
+    if (!audioCtx) audioCtx = new AudioContext();
+    else if (audioCtx.state !== 'running') audioCtx.resume();
+    if (!masterGain) {
+      masterGain = audioCtx.createGain();
+      masterGain.gain.value = 0.6;
+      const comp = audioCtx.createDynamicsCompressor();
+      comp.threshold.setValueAtTime(-48, audioCtx.currentTime);
+      comp.knee.setValueAtTime(60, audioCtx.currentTime);
+      comp.ratio.setValueAtTime(12, audioCtx.currentTime);
+      comp.attack.setValueAtTime(0.2, audioCtx.currentTime);
+      comp.release.setValueAtTime(0.8, audioCtx.currentTime);
+      masterGain.connect(comp);
+      comp.connect(audioCtx.destination);
+    }
+  }
+
+  // ── p5 lifecycle ──
+
+  p.setup = function() {
+    const hero = document.getElementById('hero');
+    p5canvas = p.createCanvas(hero.offsetWidth, hero.offsetHeight);
+    p5canvas.parent('hero');
+    p.colorMode(p.HSB, 360, 100, 100);
+    p.textFont('Kode Mono');
+    p.textAlign(p.LEFT, p.CENTER);
+    p.noStroke();
+    centerX = p.width / 2;
+    centerY = p.height / 3;
+    // build title on first draw frame so font is guaranteed loaded
+  };
+
+  p.draw = function() {
+    if (!titleReady) {
+      buildTitle();
+      titleReady = true;
+    }
+    p.clear();
+
+    for (const fp of floatingParticles) { fp.update(); fp.display(); }
+
+    if (stage === 0) {
+      let hoveredIndex = -1;
+      for (let i = 0; i < staticParticles.length; i++) {
+        if (hoveredIndex === -1 && staticParticles[i].isMouseOver()) hoveredIndex = i;
+      }
+      for (let i = 0; i < staticParticles.length; i++) {
+        const sp = staticParticles[i];
+        // no repulsion on stage 0 title — letters stay fixed until released as particles
+        sp.hovered = (i === hoveredIndex);
+        if (sp.hovered && !sp.wasHovered) { sp.hue = p.random(360); sp.playSound(); }
+        sp.wasHovered = sp.hovered;
+        sp.update();
+        sp.display();
+      }
+      return;
+    }
+
+    if (matrixMode) {
+      for (const fp of floatingParticles) {
+        fp.y += fp.vy;
+        if (fp.y > p.height + 10) { fp.y = p.random(-50, 0); fp.x = p.random(margin, p.width - margin); }
+        fp.display();
+      }
+      if (currentStatic && stage === stages.length - 1) drawStaticText();
+      return;
+    }
+
+    if (currentStatic && stage < stages.length) drawStaticText();
+  };
+
+  p.mousePressed = function() {
+    if (p.mouseY < 0 || p.mouseY > p.height) return;
+    initAudio();
+
+    for (const fp of floatingParticles) {
+      if (fp.isMouseOver()) {
+        draggingParticle = fp; fp.isDragging = true;
+        fp.offsetX = fp.x - p.mouseX; fp.offsetY = fp.y - p.mouseY;
+        fp.playSound(true); return;
+      }
+    }
+    if (!currentStatic && stage >= stages.length) {
+      for (const fp of floatingParticles) { fp.vx += p.random(-1,1); fp.vy += p.random(-1,1); }
+    }
+  };
+
+  p.mouseClicked = function() {
+    if (p.mouseY < 0 || p.mouseY > p.height) return;
+
+    if (stage === 0) {
+      for (const sp of staticParticles) { if (sp.isMouseOver()) { advanceStage(); return; } }
+      toggleTheme(); return;
+    }
+
+    if (currentStatic) {
+      const s = stages[stage];
+      p.textSize(s.fontSize);
+      const isLast = stage === stages.length - 1;
+      let yStart = isLast
+        ? p.height - margin - (currentStatic.length - 1) * s.spacing
+        : getStaticBaseY() - ((currentStatic.length - 1) * s.spacing) / 2;
+      for (let i = 0; i < currentStatic.length; i++) {
+        const line = currentStatic[i];
+        if (!line) continue;
+        const lw = p.textWidth(line);
+        const xStart = centerX - lw / 2;
+        const y = yStart + i * s.spacing;
+        if (p.mouseX > xStart && p.mouseX < xStart + lw &&
+            p.mouseY > y - s.fontSize/2 && p.mouseY < y + s.fontSize/2) {
+          advanceStage(); return;
+        }
+      }
+    }
+    toggleTheme();
+  };
+
+  p.mouseReleased = function() {
+    if (draggingParticle) {
+      draggingParticle.stopSound(); draggingParticle.isDragging = false; draggingParticle = null;
+    }
+  };
+
+  p.windowResized = function() {
+    const hero = document.getElementById('hero');
+    p.resizeCanvas(hero.offsetWidth, hero.offsetHeight);
+    centerX = p.width / 2; centerY = p.height / 3;
+    if (stage === 0) { titleReady = false; }
+    else if (stage < stages.length) { showStatic(stage); }
+  };
+
+}; // end sketch
+
+new p5(sketch);
+
+</script>
 </body>
 </html>

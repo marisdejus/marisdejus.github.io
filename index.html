@@ -10,6 +10,8 @@
 
     html {
       scroll-behavior: smooth;
+      overflow: hidden;
+      height: 100%;
     }
 
     body {
@@ -18,7 +20,7 @@
       font-family: 'Kode Mono', monospace;
       transition: background 0.2s, color 0.2s;
       overflow-x: hidden;
-      overflow-y: auto;
+      overflow-y: hidden;
     }
 
     body.light { background: #fff; }
@@ -28,6 +30,7 @@
       position: relative;
       width: 100%;
       height: 100vh;
+      height: 100dvh;
       overflow: hidden;
     }
 
@@ -320,10 +323,10 @@ const sketch = function(p) {
     const availW = p.width - pad * 2;
     p.textSize(100);
     const refW = Math.max(p.textWidth('Māris'), p.textWidth('Dejus'));
-    let fs = Math.floor(100 * availW / refW * 0.92);
+    let fs = Math.floor(100 * availW / refW * 0.78);
     p.textSize(fs);
     const checkW = Math.max(p.textWidth('Māris'), p.textWidth('Dejus'));
-    if (checkW > availW) fs = Math.floor(fs * (availW / checkW) * 0.92);
+    if (checkW > availW) fs = Math.floor(fs * (availW / checkW) * 0.78);
     fs = Math.min(fs, Math.floor(p.height * 0.36));
     fs = Math.max(fs, 18);
     titleFontSize = fs;
@@ -340,12 +343,15 @@ const sketch = function(p) {
       const line = lines[i];
       if (!line) continue;
       const lineW = p.textWidth(line);
-      let x = centerX - lineW / 2;
-      for (let j = 0; j < line.length; j++) {
+      const n = line.length;
+      const gap = n > 1 ? (p.width * 0.88 - lineW) / (n - 1) * 1.0 : 0;
+      const totalW = lineW + Math.max(0, gap) * (n - 1);
+      let x = centerX - totalW / 2;
+      for (let j = 0; j < n; j++) {
         const ch = line[j];
         const cw = p.textWidth(ch);
         staticParticles.push(new StaticChar(ch, x + cw/2, yStart + i*titleSpacing, titleFontSize, chordProgression[0]));
-        x += cw;
+        x += cw + Math.max(0, gap);
       }
     }
     currentChordStage = 0;
@@ -418,19 +424,19 @@ const sketch = function(p) {
     if (index === 0) {
       const lines = wrapLines(data.lines, titleFontSize);
       p.textSize(titleFontSize);
-      const pad = Math.floor(p.width * 0.06);
-      const availW = p.width - pad * 2;
       const yStart = p.height / 2 - ((lines.length - 1) * titleSpacing) / 2;
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
         if (!line) continue;
         const lineW = p.textWidth(line);
-        const gap = line.length > 1 ? (availW - lineW) / (line.length - 1) * 0.7 : 0;
-        let x = pad;
-        for (let j = 0; j < line.length; j++) {
+        const n = line.length;
+        const gap = n > 1 ? (p.width * 0.88 - lineW) / (n - 1) * 1.0 : 0;
+        const totalW = lineW + Math.max(0, gap) * (n - 1);
+        let x = centerX - totalW / 2;
+        for (let j = 0; j < n; j++) {
           const ch = line[j]; const cw = p.textWidth(ch);
           floatingParticles.push(new Particle(ch, x + cw/2, yStart + i*titleSpacing, titleFontSize));
-          x += cw + gap;
+          x += cw + Math.max(0, gap);
         }
       }
       return;
@@ -572,10 +578,7 @@ const sketch = function(p) {
     if (currentStatic) {
       const s = stages[stage];
       p.textSize(s.fontSize);
-      const isLast = stage === stages.length - 1;
-      let yStart = isLast
-        ? p.height - margin - (currentStatic.length - 1) * s.spacing
-        : getStaticBaseY() - ((currentStatic.length - 1) * s.spacing) / 2;
+      const yStart = getStaticBaseY() - ((currentStatic.length - 1) * s.spacing) / 2;
       for (let i = 0; i < currentStatic.length; i++) {
         const line = currentStatic[i];
         if (!line) continue;
@@ -584,6 +587,9 @@ const sketch = function(p) {
         const y = yStart + i * s.spacing;
         if (p.mouseX > xStart && p.mouseX < xStart + lw &&
             p.mouseY > y - s.fontSize/2 && p.mouseY < y + s.fontSize/2) {
+          if (stage === stages.length - 1) {
+            window.location.href = 'mailto:dejusmaris@gmail.com?subject=Hello Māris';
+          }
           advanceStage(); return;
         }
       }
